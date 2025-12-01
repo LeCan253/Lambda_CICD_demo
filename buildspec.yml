@@ -6,9 +6,8 @@ phases:
       - pip install -r requirements.txt -t .
   build:
     commands:
-      - cd src
-      - zip -r ../deployment.zip .
-
+      - echo "Zipping Lambda function"
+      - zip -r deployment.zip .
 artifacts:
   files:
     - deployment.zip
