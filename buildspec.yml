@@ -5,11 +5,14 @@ phases:
     runtime-versions:
       python: 3.12
     commands:
-      pip install --target . -r requirements.txt
-      
+      pip install --target ./package -r requirements.txt
+
   build:
     commands:
-      zip -r function.zip .
+      cp lambda_function.py package/
+      cd package
+      zip -r ../function.zip .
+      cd ..
 
 artifacts:
   files:
