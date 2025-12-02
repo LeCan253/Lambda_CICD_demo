@@ -5,14 +5,18 @@ phases:
     runtime-versions:
       python: 3.12
     commands:
-      pip install --target ./package -r requirements.txt
+      - echo "Installing dependencies to ./package"
+      - pip install --target ./package -r requirements.txt
 
   build:
     commands:
-      cp lambda_function.py package/
-      cd package
-      zip -r ../function.zip .
-      cd ..
+      - echo "Copying lambda_function.py into package directory"
+      - cp lambda_function.py package/
+      - echo "Zipping code into function.zip"
+      - cd package
+      - zip -r ../function.zip .
+      - cd ..
+      - echo "Build phase done"
 
 artifacts:
   files:
