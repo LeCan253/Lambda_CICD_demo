@@ -7,11 +7,12 @@ phases:
     commands:
       - echo Installing dependencies...
       - pip install -r requirements.txt -t .
-
   build:
     commands:
-      - echo Packaging lambda function...
-      - zip -r function.zip lambda_function.py requirements.txt .
+      - echo Build phase done. No manual zipping.
+
 artifacts:
   files:
-    - function.zip
+    - lambda_function.py
+    - requirements.txt
+    - '**/*'
