@@ -2,12 +2,15 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.12
     commands:
-      - pip3 install -r requirements.txt -t .
+      pip install --target . -r requirements.txt
+      
   build:
     commands:
-      - zip -r deployment.zip .
+      zip -r function.zip .
 
 artifacts:
   files:
-    - deployment.zip
+    - function.zip
